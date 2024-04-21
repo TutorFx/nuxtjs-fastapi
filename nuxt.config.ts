@@ -26,6 +26,10 @@ export default defineNuxtConfig({
     typedPages: true,
   },
 
+  css: [
+    '@unocss/reset/tailwind.css',
+  ],
+
   devtools: { enabled: true },
 
   nitro: {
