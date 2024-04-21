@@ -1,0 +1,30 @@
+name: autofix.ci # needed to securely identify the workflow
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+
+jobs:
+  autofix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: pnpm
+
+      # TODO: add all code-fixing here.
+      - name: Install
+        run: pnpm install
+
+      - name: Lint
+        run: pnpm run lint --fix
+
+      - uses: autofix-ci/action@d3e591514b99d0fca6779455ff8338516663f7cc
+        with:
+          commit-message: 🚨 Fix compiler / linter warnings.
