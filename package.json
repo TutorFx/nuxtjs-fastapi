@@ -1,7 +1,8 @@
 {
   "name": "nuxtjs-fastapi",
-  "private": true,
   "type": "module",
+  "private": true,
+  "packageManager": "pnpm@8.15.6",
   "scripts": {
     "build": "nuxt build",
     "fastapi-dev": "pip3 install -r requirements.txt && python -m uvicorn api.index:app --reload",
@@ -9,15 +10,23 @@
     "dev": "concurrently \"npm run nuxt-dev\" \"npm run fastapi-dev\"",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "typecheck": "vue-tsc --noEmit"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^2.15.0",
     "@nuxt/devtools": "^1.2.0",
+    "@nuxt/eslint": "^0.3.8",
+    "@unocss/eslint-config": "^0.59.4",
+    "@unocss/nuxt": "^0.59.4",
+    "concurrently": "^8.2.2",
+    "eslint": "^9.1.0",
+    "eslint-plugin-format": "^0.1.1",
     "nuxt": "^3.11.2",
+    "typescript": "^5.4.5",
     "vue": "^3.4.23",
-    "vue-router": "^4.3.2"
-  },
-  "dependencies": {
-    "concurrently": "^8.2.2"
+    "vue-router": "^4.3.2",
+    "vue-tsc": "^2.0.13"
   }
 }
