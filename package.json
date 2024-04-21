@@ -2,6 +2,7 @@
   "name": "nuxtjs-fastapi",
   "type": "module",
   "private": true,
+  "packageManager": "pnpm@8.15.6",
   "scripts": {
     "build": "nuxt build",
     "fastapi-dev": "pip3 install -r requirements.txt && python -m uvicorn api.index:app --reload",
